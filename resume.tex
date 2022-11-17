@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+\usepackage[left=0.5cm, right=0.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{graphbox}
+
+% Add in all of your variables for first and last name email, cell phone, and address here
+\newcommand{\myname}{Firstname Lastname}
+\newcommand{\myemail}{example@example.com}
+\newcommand{\myphone}{xxx-xxx-xxxx}
+\newcommand{\mycity}{City}
+\newcommand{\mystate}{State}
+\newcommand{\mywebsite}{example.website.com}
+
+% In the event of hyperlinks add the text as black but still allow it to be selected
+% Don't add too many colors to the resume
+\hypersetup{colorlinks=true, linkcolor=black, filecolor=black, urlcolor=black,}
+
+% crimson color used for the horizontal lines on the page ONLY for 
+% titlerules in the \section environment
+\definecolor{crimson}{RGB}{200,20,60}
+
+% Markup to ensure that the title of the section is Large and 
+% all sections contain a red line after the declaration
+\titleformat{\section}{\Large}{}{0cm}{}[\color{crimson}\titlerule]
+% Subsections should be bold text for the title
+\titleformat{\subsection}{\bfseries}{}{0cm}{}
+
+% Surpress the page numbers from displaying
+\pagenumbering{gobble}
+
+% #1 Degree Type Ex. M.E or B.S
+% #2 Degree name Ex: Computer Science
+% #3 Month and Year of Graduation
+% #4 University degree was achieved from
+% #5 City and State of the university
+\newcommand{\education}[5]
+{
+\begin{flushleft}
+\textit{#1} in \textit{#2}\hfill{#3}\\\textbf{#4 - #5}
+\end{flushleft}
+}
+
+% #1 Skill name Ex: Computer Programming
+% #2 Eamxples Ex: C, C++, ...
+\newcommand{\skill}[2]{\textbf{#1} \hfill{#2}\\ }
+
+\begin{document}
+
+% Resume Header information
+% Left side => First Last and website
+% Right side => Email, City State, Mobile Phone
+
+{\huge \myname} 
+\hfill 
+{\normalsize{\normalsize \myemail} \includegraphics[align=c, scale=0.35]{email.jpg}}
+\\
+\hspace*{0pt}{\hfill{\normalsize \myphone} \includegraphics[align=c, scale=0.03]{phone.jpg}}
+\\
+{\href{\mywebsite}{\mywebsite}}
+\hspace*{0pt}{\hfill{\normalsize \mycity{,}\mystate} \includegraphics[scale=0.25]{address.jpg}}
+
+
+%\section{Summary}
+%\center I am a highly committed, diligent, self-motivated, and honorable person capable of working %well with others or alone. I enjoy all engineering challenges, but I prefer systems and application development.
+
+% All education instances should be left aligned using the flush left
+% the Degree, GPA and Graduation Data are italicized 
+% the School and its location are bolded
+\section{Education}
+\education{B.S.}{Example Degree}{XXX XXXX}{Example University}{City, State}
+
+\section{Experience}
+\textbf{Place of Work}, \textit{Position}\hfill{To Date - From Date}
+\begin{itemize}
+\setlength\itemsep{0em}
+\item\small{Thing you did 1.}
+\item\small{Thing you did 2.}
+\item\small{Thing you did 3.}
+\end{itemize}
+
+% Add more places of work here
+
+% If you would like to add publications, remove the comment
+% for the section below
+
+%\section{Publications}
+
+\section{Skills}
+\skill{Skill 1}{Examples ...}
+% Add more skills below
+
+\end{document}
